@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "cookie-parser": "^1.4.7",
+    "express-rate-limit": "^8.3.2",
+    "express-validator": "^7.3.2",
+    "framer-motion": "^12.38.0",
+    "helmet": "^8.1.0",
+    "jwt-decode": "^4.0.0",
+    "lightweight-charts": "^5.1.0",
+    "lucide-react": "^1.8.0",
+    "react-chartjs-2": "^5.3.1",
+    "react-hot-toast": "^2.6.0",
+    "recharts": "^3.8.1"
+  }
+}
