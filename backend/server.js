@@ -9,13 +9,22 @@ require("dotenv").config();
 const app = express();
 
 
+// ✅ ROOT ROUTE (for testing)
+app.get("/", (req, res) => {
+  res.send("API running 🚀");
+});
+
+
 // 🔐 SECURITY HEADERS
 app.use(helmet());
 
 
-// 🔐 CORS
+// ✅ 🔥 CORS FIX (IMPORTANT)
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: [
+    "http://localhost:3000",
+    "https://expense-tracker-tawny-one-97.vercel.app"
+  ],
   credentials: true
 }));
 
@@ -45,7 +54,7 @@ app.use((req, res, next) => {
 });
 
 
-// 🔥 BASIC XSS CLEANER (SAFE)
+// 🔥 BASIC XSS CLEANER
 app.use((req, res, next) => {
   const clean = (obj) => {
     for (let key in obj) {
@@ -73,10 +82,16 @@ const limiter = rateLimit({
 app.use(limiter);
 
 
-// 🔥 ROUTES (IMPORTANT)
+// 🔥 ROUTES
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/transactions", require("./routes/transaction"));
 app.use("/api/admin", require("./routes/admin"));
+
+
+// ❗ OPTIONAL: HANDLE UNKNOWN ROUTES (GOOD PRACTICE)
+app.use((req, res) => {
+  res.status(404).json({ msg: "Route not found ❌" });
+});
 
 
 // 🔥 GLOBAL ERROR HANDLER
