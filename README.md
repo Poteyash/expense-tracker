@@ -1,9 +1,7 @@
-# 💰 Expense Tracker   ← (Project Title)
+# 💸 Expense Tracker
 
 ## 📌 Description
-Short explain:
-A full-stack expense tracker application to manage daily expenses.
-
+A full-stack expense tracker application to manage daily expenses with real-time tracking and interactive UI.
 ---
 
 ## 🚀 Features
